@@ -1,0 +1,142 @@
+;(function () {
+
+function isMe(scriptElem){
+  var src = scriptElem.getAttribute('src');
+  if (src && src.indexOf) {
+    return src.indexOf('zigpoll-shopify-embed') !== -1;
+  }
+}
+
+var me = null;
+var scripts = document.getElementsByTagName("script")
+for (var i = 0; i < scripts.length; ++i) {
+  if (isMe(scripts[i])) {
+    me = scripts[i];
+  }
+}
+
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+var src = me.getAttribute('src');
+var accountId = getParameterByName('accountId', src);
+
+if (window.Zigpoll && window.Zigpoll.refresh) {
+
+  console.warn('There are multiple Zigpoll embeds on this page. Please check your code.');
+
+} else {
+
+  var passedUser, passedMetadata;
+  if (window.Zigpoll) {
+    passedUser = window.Zigpoll.user;
+    passedMetadata = window.Zigpoll.metadata;
+  }
+
+  /* Zigpoll script with account id */
+  window.Zigpoll = {
+    accountId: accountId
+  };
+
+  if (passedUser) {
+    window.Zigpoll.user = passedUser;
+  }
+  if (passedMetadata) {
+    window.Zigpoll.metadata = passedMetadata;
+  }
+
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.charset = "utf-8";
+  script.async = true;
+  script.src = '//cdn.zigpoll.com/static/js/main.js';
+
+  document.head.appendChild(script);
+
+  /* If you included the customer code snippet */
+  if (window.ZigpollCustomer) {
+    var customer = window.ZigpollCustomer;
+    var user = window.Zigpoll.user || {};
+
+    user.metadata = user.metadata || {};
+    
+    user.handle = customer.name;
+    // user.id = customer.id;
+
+    user.metadata.name = customer.name;
+    user.metadata.email = customer.email;
+    user.metadata.shopify_customer_id = customer.id;
+
+    window.Zigpoll.user = user;
+  }
+
+  /* If you're on the checkout page */
+  if (window.Shopify && window.Shopify.checkout) {
+    var checkout = window.Shopify.checkout;
+
+    var user = window.Zigpoll.user || {};
+    user.metadata = user.metadata || {};
+    var metadata = window.Zigpoll.metadata || {};
+    var templateVariables = window.Zigpoll.templateVariables || {};
+
+    if (checkout.customer_id) {
+      // user.id = ''+checkout.customer_id;
+      metadata.shopify_customer_id = ''+checkout.customer_id;
+      templateVariables.shopify_customer_id = ''+checkout.customer_id;
+      user.metadata.shopify_customer_id = ''+checkout.customer_id;
+    }
+
+    if (checkout.order_id) {
+      metadata.shopify_order_id = ''+checkout.order_id;
+      user.metadata.has_purchased = "true";
+    }
+
+    if (document.querySelector(".os-order-number")) {
+      var orderNumberRaw = document.querySelector(".os-order-number").innerText;
+      if (orderNumberRaw) {
+        var orderNumberArr = orderNumberRaw.split('#');
+        if (orderNumberArr.length === 2) {
+          var orderNumber = '' + orderNumberArr[1];
+          metadata.shopify_order_number = orderNumber;
+        }
+      }
+    }
+
+    if (checkout.email) {
+      metadata.shopify_customer_email = checkout.email;
+      templateVariables.shopify_customer_email = checkout.email;
+      user.metadata.email = checkout.email;
+    }
+
+    if (checkout.billing_address) {
+      var firstName = checkout.billing_address.first_name;
+      var lastName = checkout.billing_address.last_name;
+      if (firstName) {
+        templateVariables.shopify_customer_first_name = firstName;
+      }
+      if (lastName) {
+        templateVariables.shopify_customer_last_name = lastName;
+      }
+      if (!user.handle && (firstName && lastName)) {
+        user.handle = firstName + ' ' + lastName;
+      }
+      if (firstName || lastName) {
+        user.metadata.name = [firstName, lastName].join(' ').trim();
+      }
+    }
+
+    window.Zigpoll.metadata = metadata;
+    window.Zigpoll.user = user || window.Zigpoll.user;
+    window.Zigpoll.templateVariables = templateVariables;
+  }
+
+}
+
+}());

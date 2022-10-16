@@ -1,0 +1,97 @@
+(function() {
+  var __sections__ = {};
+  (function() {
+    for(var i = 0, s = document.getElementById('sections-script').getAttribute('data-sections').split(','); i < s.length; i++)
+      __sections__[s[i]] = true;
+  })();
+  (function() {
+  if (!__sections__["BA-collection"] && !window.DesignMode) return;
+  try {
+    
+let el = document.querySelector(".pt-row");
+let x = 0, y = 0, top = 0, left = 0;
+
+let draggingFunction = (e) => {
+    document.addEventListener('mouseup', () => {
+        document.removeEventListener("mousemove", draggingFunction);
+    });
+
+    el.scrollLeft = left - e.pageX + x;
+    el.scrollTop = top - e.pageY + y;
+};
+
+el.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+
+    y = e.pageY;
+    x = e.pageX;
+    top = el.scrollTop;
+    left = el.scrollLeft;
+
+    document.addEventListener('mousemove', draggingFunction);
+});
+
+  } catch(e) { console.error(e); }
+})();
+
+(function() {
+  if (!__sections__["BA-products"] && !window.DesignMode) return;
+  try {
+    
+let el = document.querySelector(".pt-row2");
+let x = 0, y = 0, top = 0, left = 0;
+
+let draggingFunction = (e) => {
+    document.addEventListener('mouseup', () => {
+        document.removeEventListener("mousemove", draggingFunction);
+    });
+
+    el.scrollLeft = left - e.pageX + x;
+    el.scrollTop = top - e.pageY + y;
+};
+
+el.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+
+    y = e.pageY;
+    x = e.pageX;
+    top = el.scrollTop;
+    left = el.scrollLeft;
+
+    document.addEventListener('mousemove', draggingFunction);
+});
+
+  } catch(e) { console.error(e); }
+})();
+
+(function() {
+  if (!__sections__["BA-Shop-Messi-Collection"] && !window.DesignMode) return;
+  try {
+    
+let el = document.querySelector(".blocks");
+let x = 0, y = 0, top = 0, left = 0;
+
+let draggingFunction = (e) => {
+    document.addEventListener('mouseup', () => {
+        document.removeEventListener("mousemove", draggingFunction);
+    });
+
+    el.scrollLeft = left - e.pageX + x;
+    el.scrollTop = top - e.pageY + y;
+};
+
+el.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+
+    y = e.pageY;
+    x = e.pageX;
+    top = el.scrollTop;
+    left = el.scrollLeft;
+
+    document.addEventListener('mousemove', draggingFunction);
+});
+
+  } catch(e) { console.error(e); }
+})();
+
+})();

@@ -1,0 +1,7 @@
+(function(){const ORIGIN='https://fontify.nitroapps.co';const SCRIPTURL='https://fontify.nitroapps.co/js/main.js';if(window.opener)
+{window.addEventListener("message",receiveMessage,false);function watchClosedWindow()
+{let itv=setInterval(function(){if(!window.opener||window.opener.closed)
+{clearInterval(itv);window.close();}},1000);}
+function receiveMessage(event){if(event.data.action=='fontify_ready')
+{watchClosedWindow();let dom=document.createElement('script');dom.type='text/javascript';dom.src=SCRIPTURL;document.body.appendChild(dom);window.removeEventListener('message',receiveMessage);}}
+window.opener.postMessage({action:'init',data:JSON.parse(JSON.stringify(window.Shopify))},ORIGIN);}})();

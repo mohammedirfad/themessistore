@@ -1,0 +1,265 @@
+
+function showBanner(){
+    hulkAddCss("https://cookiebar.hulkapps.com/hulk_cookie_bar/cookie_bar.css");
+    var user_selection = ''
+    var hulkCookiePref = hulkGetCookie('hulkCookiePref');
+    var hulkCookieBarClick = hulkGetCookie('hulkCookieBarClick');
+
+    if(false && true) {
+        if (hulkCookiePref == '') {
+            user_selection = '.hulk_cookie_bar .bar_heading { color: #FFFFFF !important; } .hulk_top-content .switch-label:before { background-color: #999999 } .hulk_top-content .switch-input:checked + .switch-label:before { background-color: #3CC527 } .hulk_top-content .switch-input:checked + .switch-label:after, .hulk_top-content .switch-label:after { background-color: #CFCFCF } .hulk_cookie_bar .accept_btn { background: #FFFFFF; color: #333333; border-radius: 0px;  border: 2px #FFFFFF solid;} .hulk_cookie_bar .accept_btn:hover { background: #DDDDDD;  color: #333333; border: 2px #DDDDDD solid;  } .hulk_cookie_bar button.deny_btn { background: #FFFFFF; color: #333333; border-radius: 0px;  border: 2px #FFFFFF solid;} .hulk_cookie_bar button.deny_btn:hover { background: #DDDDDD;  color: #333333; border: 2px #DDDDDD solid;  } .hulk_cookie_bar .pre_btn { color: #FFFFFF; border: 2px #FFFFFF solid; border-radius: 0px;} .hulk_cookie_bar { background: #333333; } .hulk_cookie_bar .description_text { color: #FFFFFF; } .hulk_cookie_bar .description_text a { color: #2680EB !important; text-decoration: underline; }  .hulk_cookie_bar button.bar_btn:hover { background: #DDDDDD;  color: #333333; border: 2px #DDDDDD solid;  } ' +
+                '@media screen and (min-width : 735px) { .hulk_cookie-preference-bar { bottom: 0; } }'
+        }
+    } else {
+        if(hulkCookieBarClick == ''){
+            user_selection = '.hulk_cookie_bar { background: #333333; } .hulk_cookie_bar .description_text { color: #FFFFFF; } .hulk_cookie_bar .description_text a { color: #2680EB !important; text-decoration: underline; } .hulk_cookie_bar button.bar_btn { background: #FFFFFF; color: #333333; border-radius: 0px;  border: 2px #FFFFFF solid; } .hulk_cookie_bar button.bar_btn:hover { background: #DDDDDD;  color: #333333; border: 2px #DDDDDD solid;  } .hulk_cookie_bar .deny_btn { background: #FFFFFF; color: #333333; border-radius: 0px;  border: 2px #FFFFFF solid; }  .hulk_cookie_bar .deny_btn:hover { background: #DDDDDD;  color: #333333; border: 2px #DDDDDD solid;  } ' +
+                '@media screen and (min-width : 735px) { .hulk_cookie_bar { bottom: 0; } }' ;
+        }
+    }
+
+    var sheet = document.createElement('style')
+    sheet.innerHTML = user_selection;
+    document.body.appendChild(sheet);
+    var hulkCookieHTML = ''
+
+    if(false && true){
+        if (hulkCookiePref == '') {
+            hulkCookieHTML = '  <div class=\"hulk_cookie-preference-bar mobile_bottom\" id=\"hulk_cookie_bar\" style=\"opacity: 0.7\">\n    <div class=\"Polaris-Choice__Descriptions\">\n      <div class=\"hulk-preference-bar\"><\/div>\n      <div class=\"hulk_allow-preference hulk_allow-preference-bar\" style=\"display: none; background: #333333\">\n        <div class=\"hulk_top-container_bar hulk_cookie_bar\" style=\"max-width: 700px; border-bottom: 1px solid #666;\">\n          <div class=\"top-container_bar-heading\">\n            <h2 class=\"mb-0 bar_heading\">\n              Manage cookie preference\n            <\/h2>\n          <\/div>\n        <\/div>\n\n        <div class=\"hulk_cookie_bar hulk_top-content\" style=\"max-width: 700px; margin: 0 auto;\">\n          <div class=\"top-container_content\">\n            <div class=\"flex-content\" style=\"border-bottom: 1px solid #666;\">\n              <div class=\"cookies_content\">\n                <p class=\"description_text\"><b style=\"display: flex; align-items: center;\">Strickly necessary cookies\n                  <span onclick=\"langIconChange()\" style=\"padding-left: 10px;\"><span id=\"myPlusIcon\" style=\"display: none; margin: 0;\" class=\"Polaris-Icon\"><span class=\"Polaris-VisuallyHidden\"><\/span><svg viewBox=\"0 0 20 20\" style=\"fill: #f9fafb;\" class=\"Polaris-Icon__Svg\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"M15 10a1 1 0 0 1-1 1h-3v3a1 1 0 1 1-2 0v-3H6a1 1 0 1 1 0-2h3V6a1 1 0 0 1 2 0v3h3a1 1 0 0 1 1 1zm-5-8a8 8 0 1 0 0 16 8 8 0 0 0 0-16z\"><\/path>\n    <\/svg><\/span><\/span>\n                  <span id=\"myMinusIcon\" onclick=\"langIconChange()\" style=\"padding-left: 10px; display: flex;\">\n               <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"  viewBox=\"0 0 330 330\" style=\"enable-background:new 0 0 330 330; height: 19px; width: 16px;  fill: #f9fafb; position: relative;\" xml:space=\"preserve\"><g><path d=\"M281.633,48.328C250.469,17.163,209.034,0,164.961,0C120.888,0,79.453,17.163,48.289,48.328 c-64.333,64.334-64.333,169.011,0,233.345C79.453,312.837,120.888,330,164.962,330c44.073,0,85.507-17.163,116.671-48.328	c31.165-31.164,48.328-72.599,48.328-116.672S312.798,79.492,281.633,48.328z M260.42,260.46	C234.922,285.957,201.021,300,164.962,300c-36.06,0-69.961-14.043-95.46-39.54c-52.636-52.637-52.636-138.282,0-190.919 C95,44.042,128.901,30,164.961,30s69.961,14.042,95.459,39.54c25.498,25.499,39.541,59.4,39.541,95.46	S285.918,234.961,260.42,260.46z\"/><path d=\"M254.961,150H74.962c-8.284,0-15,6.716-15,15s6.716,15,15,15h179.999c8.284,0,15-6.716,15-15S263.245,150,254.961,150z\"/><\/g><\/svg><\/span>\n                <\/b><\/p>\n                <span id=\"myLangHeading\" class=\"description_text\">These cookies are strictly necessary to enable you to move about the site or to provide certain features you have requested<\/span>\n              <\/div>\n              <div class=\"description_text text-right allow_switch\">\n                <b>Always Allowed<\/b>\n              <\/div>\n            <\/div>\n              <div class=\"flex-content\" style=\"border-bottom:  1px solid #666;\">\n                <div class=\"cookies_content\">\n                  <p class=\"description_text\"><b style=\"display: flex; align-items: center;\">Functionality cookies\n                    <span onclick=\"cookieDescHide(0)\" style=\"padding-left: 10px;\"><span id=\"plusIcon_0\" style=\"display: none; margin: 0;\" class=\"Polaris-Icon\"><span class=\"Polaris-VisuallyHidden\"><\/span><svg viewBox=\"0 0 20 20\" style=\"fill: #f9fafb;\" class=\"Polaris-Icon__Svg\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"M15 10a1 1 0 0 1-1 1h-3v3a1 1 0 1 1-2 0v-3H6a1 1 0 1 1 0-2h3V6a1 1 0 0 1 2 0v3h3a1 1 0 0 1 1 1zm-5-8a8 8 0 1 0 0 16 8 8 0 0 0 0-16z\"><\/path>\n                  <\/svg><\/span><\/span>\n                    <span id=\"minusIcon_0\" style=\"padding-left: 10px; display: flex;\" onclick=\"cookieDescHide(0)\">\n                      <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"  viewBox=\"0 0 330 330\" style=\"enable-background:new 0 0 330 330; height: 19px;\n                          width: 16px; fill: #f9fafb; position: relative;\" xml:space=\"preserve\"><g><path d=\"M281.633,48.328C250.469,17.163,209.034,0,164.961,0C120.888,0,79.453,17.163,48.289,48.328 c-64.333,64.334-64.333,169.011,0,233.345C79.453,312.837,120.888,330,164.962,330c44.073,0,85.507-17.163,116.671-48.328	c31.165-31.164,48.328-72.599,48.328-116.672S312.798,79.492,281.633,48.328z M260.42,260.46	C234.922,285.957,201.021,300,164.962,300c-36.06,0-69.961-14.043-95.46-39.54c-52.636-52.637-52.636-138.282,0-190.919 C95,44.042,128.901,30,164.961,30s69.961,14.042,95.459,39.54c25.498,25.499,39.541,59.4,39.541,95.46	S285.918,234.961,260.42,260.46z\"/><path d=\"M254.961,150H74.962c-8.284,0-15,6.716-15,15s6.716,15,15,15h179.999c8.284,0,15-6.716,15-15S263.245,150,254.961,150z\"/><\/g><\/svg><\/span>\n                  <\/b><\/p>\n                  <span id=\"myLangDesc_0\" class=\"description_text\">These cookies enhance the functionality of the website by storing your preferences<\/span>\n                <\/div>\n                <div class=\"allow_switch text-right\">\n                  <div class=\"switch\">\n                    <input id=\"switch-pref-0\" type=\"checkbox\" class=\"switch-input switch-input-pref\" value=\"functionality\" checked>\n                    <label for=\"switch-pref-0\" class=\"switch-label\">Switch<\/label>\n                  <\/div>\n                <\/div>\n              <\/div>\n              <div class=\"flex-content\" style=\"border-bottom:  1px solid #666;\">\n                <div class=\"cookies_content\">\n                  <p class=\"description_text\"><b style=\"display: flex; align-items: center;\">Performance cookies\n                    <span onclick=\"cookieDescHide(1)\" style=\"padding-left: 10px;\"><span id=\"plusIcon_1\" style=\"display: none; margin: 0;\" class=\"Polaris-Icon\"><span class=\"Polaris-VisuallyHidden\"><\/span><svg viewBox=\"0 0 20 20\" style=\"fill: #f9fafb;\" class=\"Polaris-Icon__Svg\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"M15 10a1 1 0 0 1-1 1h-3v3a1 1 0 1 1-2 0v-3H6a1 1 0 1 1 0-2h3V6a1 1 0 0 1 2 0v3h3a1 1 0 0 1 1 1zm-5-8a8 8 0 1 0 0 16 8 8 0 0 0 0-16z\"><\/path>\n                  <\/svg><\/span><\/span>\n                    <span id=\"minusIcon_1\" style=\"padding-left: 10px; display: flex;\" onclick=\"cookieDescHide(1)\">\n                      <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"  viewBox=\"0 0 330 330\" style=\"enable-background:new 0 0 330 330; height: 19px;\n                          width: 16px; fill: #f9fafb; position: relative;\" xml:space=\"preserve\"><g><path d=\"M281.633,48.328C250.469,17.163,209.034,0,164.961,0C120.888,0,79.453,17.163,48.289,48.328 c-64.333,64.334-64.333,169.011,0,233.345C79.453,312.837,120.888,330,164.962,330c44.073,0,85.507-17.163,116.671-48.328	c31.165-31.164,48.328-72.599,48.328-116.672S312.798,79.492,281.633,48.328z M260.42,260.46	C234.922,285.957,201.021,300,164.962,300c-36.06,0-69.961-14.043-95.46-39.54c-52.636-52.637-52.636-138.282,0-190.919 C95,44.042,128.901,30,164.961,30s69.961,14.042,95.459,39.54c25.498,25.499,39.541,59.4,39.541,95.46	S285.918,234.961,260.42,260.46z\"/><path d=\"M254.961,150H74.962c-8.284,0-15,6.716-15,15s6.716,15,15,15h179.999c8.284,0,15-6.716,15-15S263.245,150,254.961,150z\"/><\/g><\/svg><\/span>\n                  <\/b><\/p>\n                  <span id=\"myLangDesc_1\" class=\"description_text\">These cookies help to improve the performance of the website, providing a better user experience<\/span>\n                <\/div>\n                <div class=\"allow_switch text-right\">\n                  <div class=\"switch\">\n                    <input id=\"switch-pref-1\" type=\"checkbox\" class=\"switch-input switch-input-pref\" value=\"performance\" checked>\n                    <label for=\"switch-pref-1\" class=\"switch-label\">Switch<\/label>\n                  <\/div>\n                <\/div>\n              <\/div>\n              <div class=\"flex-content\" style=\"border-bottom:  1px solid #666;\">\n                <div class=\"cookies_content\">\n                  <p class=\"description_text\"><b style=\"display: flex; align-items: center;\">Targeting Cookies\n                    <span onclick=\"cookieDescHide(2)\" style=\"padding-left: 10px;\"><span id=\"plusIcon_2\" style=\"display: none; margin: 0;\" class=\"Polaris-Icon\"><span class=\"Polaris-VisuallyHidden\"><\/span><svg viewBox=\"0 0 20 20\" style=\"fill: #f9fafb;\" class=\"Polaris-Icon__Svg\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"M15 10a1 1 0 0 1-1 1h-3v3a1 1 0 1 1-2 0v-3H6a1 1 0 1 1 0-2h3V6a1 1 0 0 1 2 0v3h3a1 1 0 0 1 1 1zm-5-8a8 8 0 1 0 0 16 8 8 0 0 0 0-16z\"><\/path>\n                  <\/svg><\/span><\/span>\n                    <span id=\"minusIcon_2\" style=\"padding-left: 10px; display: flex;\" onclick=\"cookieDescHide(2)\">\n                      <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"  viewBox=\"0 0 330 330\" style=\"enable-background:new 0 0 330 330; height: 19px;\n                          width: 16px; fill: #f9fafb; position: relative;\" xml:space=\"preserve\"><g><path d=\"M281.633,48.328C250.469,17.163,209.034,0,164.961,0C120.888,0,79.453,17.163,48.289,48.328 c-64.333,64.334-64.333,169.011,0,233.345C79.453,312.837,120.888,330,164.962,330c44.073,0,85.507-17.163,116.671-48.328	c31.165-31.164,48.328-72.599,48.328-116.672S312.798,79.492,281.633,48.328z M260.42,260.46	C234.922,285.957,201.021,300,164.962,300c-36.06,0-69.961-14.043-95.46-39.54c-52.636-52.637-52.636-138.282,0-190.919 C95,44.042,128.901,30,164.961,30s69.961,14.042,95.459,39.54c25.498,25.499,39.541,59.4,39.541,95.46	S285.918,234.961,260.42,260.46z\"/><path d=\"M254.961,150H74.962c-8.284,0-15,6.716-15,15s6.716,15,15,15h179.999c8.284,0,15-6.716,15-15S263.245,150,254.961,150z\"/><\/g><\/svg><\/span>\n                  <\/b><\/p>\n                  <span id=\"myLangDesc_2\" class=\"description_text\">These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.<\/span>\n                <\/div>\n                <div class=\"allow_switch text-right\">\n                  <div class=\"switch\">\n                    <input id=\"switch-pref-2\" type=\"checkbox\" class=\"switch-input switch-input-pref\" value=\"targeting\" checked>\n                    <label for=\"switch-pref-2\" class=\"switch-label\">Switch<\/label>\n                  <\/div>\n                <\/div>\n              <\/div>\n              <div class=\"flex-content\" style=\"border-bottom:  1px solid #666;\">\n                <div class=\"cookies_content\">\n                  <p class=\"description_text\"><b style=\"display: flex; align-items: center;\">Unclassified Cookies\n                    <span onclick=\"cookieDescHide(3)\" style=\"padding-left: 10px;\"><span id=\"plusIcon_3\" style=\"display: none; margin: 0;\" class=\"Polaris-Icon\"><span class=\"Polaris-VisuallyHidden\"><\/span><svg viewBox=\"0 0 20 20\" style=\"fill: #f9fafb;\" class=\"Polaris-Icon__Svg\" focusable=\"false\" aria-hidden=\"true\">\n      <path d=\"M15 10a1 1 0 0 1-1 1h-3v3a1 1 0 1 1-2 0v-3H6a1 1 0 1 1 0-2h3V6a1 1 0 0 1 2 0v3h3a1 1 0 0 1 1 1zm-5-8a8 8 0 1 0 0 16 8 8 0 0 0 0-16z\"><\/path>\n                  <\/svg><\/span><\/span>\n                    <span id=\"minusIcon_3\" style=\"padding-left: 10px; display: flex;\" onclick=\"cookieDescHide(3)\">\n                      <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"  viewBox=\"0 0 330 330\" style=\"enable-background:new 0 0 330 330; height: 19px;\n                          width: 16px; fill: #f9fafb; position: relative;\" xml:space=\"preserve\"><g><path d=\"M281.633,48.328C250.469,17.163,209.034,0,164.961,0C120.888,0,79.453,17.163,48.289,48.328 c-64.333,64.334-64.333,169.011,0,233.345C79.453,312.837,120.888,330,164.962,330c44.073,0,85.507-17.163,116.671-48.328	c31.165-31.164,48.328-72.599,48.328-116.672S312.798,79.492,281.633,48.328z M260.42,260.46	C234.922,285.957,201.021,300,164.962,300c-36.06,0-69.961-14.043-95.46-39.54c-52.636-52.637-52.636-138.282,0-190.919 C95,44.042,128.901,30,164.961,30s69.961,14.042,95.459,39.54c25.498,25.499,39.541,59.4,39.541,95.46	S285.918,234.961,260.42,260.46z\"/><path d=\"M254.961,150H74.962c-8.284,0-15,6.716-15,15s6.716,15,15,15h179.999c8.284,0,15-6.716,15-15S263.245,150,254.961,150z\"/><\/g><\/svg><\/span>\n                  <\/b><\/p>\n                  <span id=\"myLangDesc_3\" class=\"description_text\">These are the cookies that we are in the process of classifying, together with the providers of individual cookies.<\/span>\n                <\/div>\n                <div class=\"allow_switch text-right\">\n                  <div class=\"switch\">\n                    <input id=\"switch-pref-3\" type=\"checkbox\" class=\"switch-input switch-input-pref\" value=\"unclassified\" checked>\n                    <label for=\"switch-pref-3\" class=\"switch-label\">Switch<\/label>\n                  <\/div>\n                <\/div>\n              <\/div>\n          <\/div>\n        <\/div>\n      <\/div>\n      <div class=\"hulk_cookie_bar mobile_bottom hulk_contain_bar hulk_bottom-cookie_bar\" style=\"border-top: 1px solid #666;\">\n        <div class=\"description_text editor_content\">This website uses <a href=\"https://www.themessistore.com/policies/privacy-policy\">cookies<\/a> to improve your experience.<\/div>\n        <div class=\"button_div cookie_bar right_cookie_bar\">\n          <button type=\"button\" style=\"border-top-right-radius: 0; border-bottom-right-radius: 0;\" class=\"bar_button btn_outline-blue pre_btn\" onclick=\"togglePreferences()\" aria-label=\"Preferences\">\n            <span>Preferences<\/span>\n          <\/button>\n          <div>\n            <button type=\"button\" class=\"Polaris-Button btn-dropdown Polaris-Button--iconOnly Polaris-Button--primary Polaris-Button__ConnectedDisclosure pre_btn\" aria-label=\"Other save actions\" tabindex=\"0\" aria-controls=\"Polarispopover2\" aria-owns=\"Polarispopover2\" aria-expanded=\"true\"  onclick=\"togglePreferences()\" aria-label=\"Preferences Toggle\">\n              <span class=\"Polaris-Button__Icon\">\n                <span class=\"Polaris-Icon\">\n                  <span class=\"Polaris-VisuallyHidden\"><\/span>\n                  <svg viewBox=\"0 0 20 20\" class=\"Polaris-Icon__Svg\" focusable=\"false\" aria-hidden=\"true\">\n                    <path d=\"M13.098 8H6.902c-.751 0-1.172.754-.708 1.268L9.292 12.7c.36.399 1.055.399 1.416 0l3.098-3.433C14.27 8.754 13.849 8 13.098 8z\"><\/path>\n                  <\/svg>\n                <\/span>\n              <\/span>\n            <\/button>\n          <\/div>\n          <button class=\"bar_button btn_blue accept_btn\" onclick=\"hulkCollectRequest()\" aria-label=\"Accept All\">\n            Accept All\n          <\/button>\n          <button class=\"bar_button btn_blue deny_btn\" onclick=\"hulkHandleDecline()\" aria-label=\"Deny\">\n            Deny\n          <\/button>\n        <\/div>\n      <\/div>\n    <\/div>\n  <\/div>\n';
+        }
+    } else {
+        if(hulkCookieBarClick == '') {
+            hulkCookieHTML = '<div aria-label="cookie consent bar" class="hulk_cookie_bar  mobile_bottom" id="hulk_cookie_bar"><div class="description_text">This website uses <a href="https://www.themessistore.com/policies/privacy-policy">cookies</a> to improve your experience.</div><div class="button_div"><button type="button" class="bar_btn" aria-label="Accept" onclick="hulkCollectRequest()"><span>Accept</span></button><button aria-label="Deny" class="close_span deny_btn " onclick="hulkHandleDecline()">Deny</button></div></div>';
+        }
+    }
+
+    var hulk_body_text = hulkCreateHTMLNode(hulkCookieHTML);
+    document.body.appendChild(hulk_body_text);
+}
+
+function hulkAddCss(fileName) {
+    var head = document.head;
+    var link = document.createElement("link");
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = fileName;
+    head.appendChild(link);
+}
+
+function hulkCreateHTMLNode(htmlCode) {
+    var htmlNode = document.createElement('div');
+    htmlNode.innerHTML = htmlCode;
+    return htmlNode;
+}
+
+function hulkHideCookieDiv() {
+    if(false ){
+        var checkedValue = [];
+        var inputElements = document.getElementsByClassName('switch-input-pref');
+        item = {}
+        for(var i=0; inputElements[i]; ++i){
+            if(inputElements[i].checked){
+                item[ inputElements[i].value] = "true"
+            }else{
+                item[inputElements[i].value] = "false"
+            }
+        }
+        checkedValue.push(item)
+        hulkSetCookie('hulkCookiePref', JSON.stringify(checkedValue), 30);
+    }
+    hulkSetCookie('hulkCookieBarClick', 'clicked', 30);
+    var hulkfadeTarget = document.getElementById("hulk_cookie_bar");
+    var hulkfadeEffect = setInterval(function () {
+        if (!hulkfadeTarget.style.opacity) {
+            hulkfadeTarget.style.opacity = 1;
+        }
+        if (hulkfadeTarget.style.opacity > 0) {
+            hulkfadeTarget.style.opacity -= 0.1;
+        } else {
+            clearInterval(hulkfadeEffect);
+            hulkfadeTarget.parentNode.removeChild(hulkfadeTarget);
+        }
+    }, 50);
+}
+
+function hulkCollectRequest() {
+    var hulkxhttp = new XMLHttpRequest();
+    hulkxhttp.open("POST", "https://cookiebar.hulkapps.com/analytic_update", true);
+    hulkxhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    hulkxhttp.send("shop=themessistore.myshopify.com&click_action=accept");
+    const userCanBeTracked = window.Shopify.trackingConsent.userCanBeTracked();
+    if(!userCanBeTracked){
+        window.Shopify.trackingConsent.setTrackingConsent(true,hulkHideCookieDiv);
+        document.addEventListener('trackingConsentAccepted',function(){
+        });
+    }
+    hulkHideCookieDiv();
+    deletePrefCookies();
+}
+
+function deleteCookie(name) {
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+function deletePrefCookies(){
+    var hulkCookiePref = hulkGetCookie('hulkCookiePref');
+    if(false && hulkCookiePref != ''){
+        deleteCookies = []
+        unclassified = false
+        hulkCookiePrefHash = JSON.parse(hulkCookiePref)
+        for (var i = 0; i < hulkCookiePrefHash.length; i++) {
+            for (var key in hulkCookiePrefHash[i]) {
+                if (hulkCookiePrefHash[i].hasOwnProperty(key)) {
+                    if (hulkCookiePrefHash[i][key] == "false")
+                    {
+                        if(key == "strictly_necessary") {
+                            deleteCookies.push("")
+                        } else if(key == "functionality") {
+                            deleteCookies.push("")
+                        } else if(key == "performance") {
+                            deleteCookies.push("")
+                        } else if(key == "targeting") {
+                            deleteCookies.push("")
+                        } else if(key == "unclassified") {
+                            unclassified = true
+                        }
+                    }
+                }
+            }
+        }
+        for (var i = 0; i < deleteCookies.length; i++) {
+            cookiesArr = deleteCookies[i].split(',')
+            for (var j = 0; j < cookiesArr.length; j++) {
+                deleteCookie(cookiesArr[j])
+            }
+        }
+        if (unclassified){
+            allCookiesArr = getAllCookies()
+            shopCookies = "".split(',')
+            unclassifiedDelete = arr_diff(allCookiesArr,shopCookies)
+            for (var j = 0; j < unclassifiedDelete.length; j++) {
+                if (unclassifiedDelete[j] !== 'hulkCookiePref'){
+                    deleteCookie(unclassifiedDelete[j])
+                }
+            }
+        }
+    }
+}
+
+function getAllCookies() {
+    allCookiesArr = []
+    var allcookies = document.cookie;
+    cookiearray = allcookies.split(';');
+    for(var i=0; i<cookiearray.length; i++) {
+        allCookiesArr.push(cookiearray[i].split('=')[0].trim());
+    }
+    return allCookiesArr;
+}
+
+function arr_diff(array1, array2) {
+    var temp = [];
+    array1 = array1.toString().split(',');
+    array2 = array2.toString().split(',');
+
+    for (var i in array1) {
+        if(array2.indexOf(array1[i]) === -1) temp.push(array1[i]);
+    }
+    for(i in array2) {
+        if(array1.indexOf(array2[i]) === -1) temp.push(array2[i]);
+    }
+    return temp.sort((a,b) => a-b);
+}
+
+function hulkHandleDecline(){
+    var hulkxhttp = new XMLHttpRequest();
+    hulkxhttp.open("POST", "https://cookiebar.hulkapps.com/analytic_update", true);
+    hulkxhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    hulkxhttp.send("shop=themessistore.myshopify.com&click_action=reject");
+    const userCanBeTracked = window.Shopify.trackingConsent.userCanBeTracked();
+    if(!userCanBeTracked){
+        window.Shopify.trackingConsent.setTrackingConsent(false,hulkHideCookieDiv);
+    } else {
+        hulkHideCookieDiv();
+    }
+}
+
+function hulkGetCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function hulkSetCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; samesite=none; secure";
+}
+
+function initCookieBanner(){
+    const userCanBeTracked = window.Shopify.trackingConsent.userCanBeTracked();
+    const userTrackingConsent = window.Shopify.trackingConsent.getTrackingConsent();
+    //if(!userCanBeTracked && (userTrackingConsent === 'no_interaction' || userTrackingConsent === '')){
+    if(userTrackingConsent === 'no_interaction' || userTrackingConsent === ''){
+        showBanner();
+    }
+}
+
+function togglePreferences(){
+    var pref_element = document.querySelector(".hulk_allow-preference-bar")
+    if (pref_element.style.display === "none") {
+        pref_element.style.display = "flex";
+        pref_element.ariaExpanded = "true";
+    } else {
+        pref_element.style.display = "none";
+        pref_element.ariaExpanded = "false";
+    }
+}
+
+function langIconChange(){
+    let lang_element = document.querySelector("#myLangHeading")
+    let minus_icon = document.querySelector("#myMinusIcon")
+    let plus_icon = document.querySelector("#myPlusIcon")
+    if (lang_element.style.display === "none") {
+        lang_element.style.display = "block";
+        minus_icon.style.display = "flex";
+        plus_icon.style.display = "none";
+    } else {
+        lang_element.style.display = "none";
+        minus_icon.style.display = "none";
+        plus_icon.style.display = "flex";
+    }
+}
+function cookieDescHide(index){
+    let lang_element = document.querySelector(`#myLangDesc_${index}`)
+    let minus_icon = document.querySelector(`#minusIcon_${index}`)
+    let plus_icon = document.querySelector(`#plusIcon_${index}`)
+    if (lang_element.style.display === "none") {
+        lang_element.style.display = "block";
+        minus_icon.style.display = "flex";
+        plus_icon.style.display = "none";
+    } else {
+        lang_element.style.display = "none";
+        minus_icon.style.display = "none";
+        plus_icon.style.display = "flex";
+    }
+}
+
+window.Shopify.loadFeatures(
+    [{ name:   'consent-tracking-api', version: '0.1'}], function(error) {
+        if (error) {
+            throw error;
+        }
+        deletePrefCookies();
+        initCookieBanner();
+    }
+);

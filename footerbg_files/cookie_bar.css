@@ -1,0 +1,451 @@
+.hulk_cookie_bar {
+  display:flex;
+  font-weight: 400;
+  padding: 9px 20px 8px 20px;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: initial;
+  letter-spacing: initial;
+  position: fixed;
+  z-index: 99999;
+  box-sizing: border-box;
+
+}
+.hulk_cookie_bar:not(.corner_popup) {
+  width: 100%;
+}
+.hulk_cookie_bar.corner_popup{
+  padding: 20px 20px 20px 20px;
+}
+.hulk_cookie_bar button.bar_btn, .hulk_cookie_bar button.deny_btn, .hulk_cookie_bar button.bar_btn_deny {
+  font-weight: 600;
+  padding: 0 20px;
+  font-size: 13px;
+  letter-spacing: .05rem;
+  text-decoration: none;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin-left: 10px;
+}
+.hulk_cookie_bar .description_text {
+  line-height: 22px;
+}
+.hulk_cookie_bar .button_div{
+  text-align: right;
+  display: flex;
+}
+/*.hulk_cookie_bar.corner_popup .button_div .close{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+    transform: translateY(0%);
+}*/
+
+#hulk_cookie_bar.slide_hide {
+  height: 0;
+  transition: all 1s ease-in-out;
+  position: inherit;
+}
+
+/*** Corner Popup ***/
+@media only screen and (min-width : 736px) {
+  .hulk_cookie_bar.corner_popup .description_text{
+    max-width: 260px;
+  }
+  .hulk_cookie_bar.corner_popup {
+    box-shadow: 0 0 7px #666;
+  }
+}
+
+@media only screen and (max-width : 735px) {
+  .hulk_cookie_bar.mobile_top, .hulk_cookie-preference-bar.mobile_top {
+    top: 0;
+    bottom: inherit;
+  }
+
+  .hulk_cookie_bar.mobile_bottom, .hulk_cookie-preference-bar.mobile_bottom {
+    top: inherit;
+    bottom: 0px;
+  }
+  .hulk_cookie_bar{
+    display: block !important;
+  }
+  .hulk_cookie_bar.corner_popup{
+    width: 100%;
+    right: 0;
+    left: 0;
+  }
+  .hulk_cookie_bar .description_text{
+    width:100%;
+    margin-bottom: 10px;
+  }
+  .hulk_cookie_bar .button_div{
+    text-align: left !important;
+  }
+  .corner_popup.hulk_cookie_bar .button_div, .hulk_cookie_bar .button_div {
+    width: auto;
+  }
+
+  .hulk_cookie_bar .button_div .bar_btn, .hulk_cookie_bar .button_div .bar_btn_deny{
+    width: auto;
+    max-width: 100%;
+  }
+  .corner_popup.hulk_cookie_bar .button_div {
+    width: auto;
+  }
+}
+
+.hulk_cookie_bar .contain_bar .editor_content {
+  padding-right: 5px;
+}
+
+
+
+
+
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+.hulk_cookie-preference-bar .mb-0, .hulk_manage-preference .mb-0{
+  margin-bottom:0;
+}
+.hulk_cookie-preference-bar .text-right, .hulk_manage-preference .text-right{
+  text-align: right;
+}
+.hulk-preference-bar {
+
+}
+.hulk_cookie-preference-bar{
+  /*font-family: 'Quicksand', sans-serif;*/
+  font-weight: 400;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 99999;
+}
+.hulk_manage-preference{
+  /*font-family: 'Quicksand', sans-serif;*/
+  font-weight: 400;
+  position: relative;
+  top:0;
+  z-index: 0;
+}
+.hulk_contain_bar {
+  display: flex;
+  padding: 9px 20px 8px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.link-color{
+  color: #7A9DE4 !important;
+}
+.hulk_cookie_bar{
+  padding: 15px 50px;
+  font-size: 16px;
+  background: #333333;
+  color: #FFFFFF;
+}
+.hulk_bottom-cookie_bar{
+  width: 100%;
+  border-top: 1px solid #666;
+}
+
+.hulk_contain_bar .right_cookie_bar{
+  justify-content: flex-end;
+}
+.hulk_cookie_bar .btn_outline-blue{
+  background-color: transparent;
+}
+.hulk_cookie_bar .btn_outline-blue:hover{
+  color: #333333;
+  background-color: #ffffff;
+}
+.hulk_cookie_bar .btn_blue{
+  color: #fff;
+  background-color: #7A9DE4;
+  margin-left: 20px;
+}
+.hulk_cookie_bar .cookie_bar {
+  display: flex;
+  align-items: center;
+}
+.hulk_top-container_bar{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.hulk_allow-preference-bar .hulk_top-container_bar .top-container_bar-heading h2{
+  font-size: 24px;
+  font-weight: 500;
+  color: #ffffff;
+  text-transform: initial;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+}
+.hulk_top-content .flex-content{
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 0;
+}
+.hulk_top-content .top-container_content{
+  width: 100%;
+}
+.hulk_top-content .top-container_content .cookies_content{
+  width: 80%;
+}
+.hulk_top-content .top-container_content .cookies_content p{
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.hulk_allow-preference-bar .hulk_top-content .top-container_content .cookies_content span{
+  font-size: 15px;
+}
+.hulk_top-content .top-container_content .allow_switch{
+  width: 20%;
+}
+.hulk_allow-preference-bar .hulk_top-content .top-container_content .allow_switch span{
+  font-weight: 500;
+}
+.hulk_top-content .switch {
+  position: relative;
+  display: inline-block;
+}
+.hulk_top-content .switch-input {
+  display: none;
+}
+.hulk_top-content .switch-label {
+  display: block;
+  width: 48px;
+  height: 24px;
+  text-indent: -150%;
+  clip: rect(0 0 0 0);
+  color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  user-select: none;
+  line-height: normal;
+  margin: 0;
+}
+.hulk_top-content .switch-label:before,
+.hulk_top-content .switch-label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  cursor: pointer;
+}
+.hulk_top-content .switch-label:before {
+  width: 100%;
+  height: 100%;
+  background-color: #999999;
+  border-radius: 9999em;
+  -webkit-transition: background-color 0.25s ease;
+  transition: background-color 0.25s ease;
+}
+.hulk_top-content input[type=checkbox]~label:after {
+  margin-top: 0 !important;
+}
+.hulk_top-content .switch-label:after {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #CFCFCF;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+  -webkit-transition: left 0.25s ease;
+  transition: left 0.25s ease;
+}
+/* When input is checked
+.hulk_top-content .switch-input:checked + .switch-label {
+  /* Switch Rail */
+/* Switch Knob */
+
+.hulk_top-content .switch-input:checked + .switch-label:before {
+  background-color: #3CC527;
+}
+/*.hulk_top-content .switch-input:checked + .switch-label:after {
+  background-color: #333333;
+}*/
+.hulk_top-content .switch-input:checked + .switch-label:after {
+  left: 25px;
+}
+
+/* hulk manage preference */
+
+.hulk_manage-preference h2 svg{
+  margin-right: 10px;
+}
+/*.hulk_manage-preference .hulk_top-container_bar .top-container_bar-heading h2 {
+  color: #000000;
+}*/
+.hulk_manage-preference .hulk_cookie_bar{
+  padding: 15px 50px;
+  font-size: 16px;
+  background: initial;
+  color: #000000;
+}
+.hulk_manage-preference .hulk_allow-preference{
+  padding: 20px 50px;
+}
+.hulk_manage-preference .hulk_cookie_bar {
+  padding: 20px 0;
+  border-bottom: 1px solid #333333;
+}
+.hulk_manage-preference .hulk_top-content .flex-content {
+  padding: 15px 0;
+}
+.hulk_manage-preference .top-container_content{
+  margin-top: 10px;
+}
+.hulk_manage-preference .hulk_top-content .switch-label:before {
+  background-color: #A8A8A8;
+}
+.hulk_manage-preference .hulk_top-content .switch-label:after {
+  background-color: #ffffff;
+}
+.hulk_manage-preference .hulk_top-content .switch-input:checked + .switch-label:before {
+  background-color: #3CC527;
+}
+.hulk_manage-preference .hulk_top-content .switch-input:checked + .switch-label:after {
+  background-color: #ffffff;
+}
+
+@media only screen and (max-width : 1024px) {
+  .hulk_top-container_bar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .hulk_cookie_bar .bar_button{
+    padding: 0 10px !important;
+  }
+  .hulk_cookie_bar {
+    padding: 20px 30px;
+    font-size: 15px;
+    background: #333333;
+    color: #FFFFFF;
+  }
+  .hulk_top-content .top-container_content .cookies_content span {
+    font-size: 14px;
+  }
+
+  .hulk_manage-preference .hulk_allow-preference {
+    padding: 20px 30px;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .hulk_cookie_bar {
+    padding: 20px 16px;
+  }
+  .hulk_top-content .top-container_content .cookies_content p {
+    margin-bottom: 8px;
+  }
+  .hulk_cookie_bar .bar_button {
+    padding: 0 25px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .hulk_contain_bar {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .hulk_bottom-cookie_bar:not(.corner_popup) .editor_content {
+    width: 100%;
+  }
+  .hulk_bottom-cookie_bar:not(.corner_popup) .cookie_bar {
+    width: 100%;
+    justify-content: center;
+    margin-top:15px;
+  }
+  .hulk_cookie-preference-bar .hulk_allow-preference{
+    height: 320px;
+    overflow-y: scroll;
+  }
+  .hulk_manage-preference .hulk_allow-preference {
+    padding: 20px 15px;
+  }
+}
+
+
+button:focus {
+  outline: none;
+}
+.hulk_allow-preference .hulk_cookie_bar{
+  position: relative;
+}
+.hulk_cookie-preference-bar .hulk_cookie_bar{
+  position: inherit !important;
+}
+.hulk_manage-preference .hulk_cookie_bar h2{
+  display: flex;
+  align-items: center;
+  text-transform: initial;
+}
+.hulk_managesite-preference.hulk_allow-preference .hulk_cookie_bar{
+  display: block;
+}
+.hulk_proxy_head{
+  display:flex; align-items: center;justify-content: space-between;width: 100%;
+}
+.hulk_cookie_bar .bar_button {
+  font-weight: 600;
+  border: 1px solid #7A9DE4;
+  padding: 0 20px;
+  font-size: 13px;
+  letter-spacing: .05rem;
+  text-decoration: none;
+  color: #7A9DE4;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  text-transform:capitalize;
+}
+/*custom button*/
+.btn-dropdown{
+  z-index: 10;
+  margin-left: -0.1rem;
+  height: 100%;
+  min-height: 50px;
+  border: 0;
+  cursor: pointer;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+.Polaris-Icon{
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+}
+.hulk_allow-preference{
+  /*background: #333333;*/
+  display: flex ;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+/*.hulk_top-content .flex-content{*/
+/*  border-bottom: 1px solid #666;*/
+/*}*/
+.top-container_content .flex-content:last-child{
+  border-bottom: 0 !important;
+}
+.button_export{
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #299d85;
+  outline: none;
+}

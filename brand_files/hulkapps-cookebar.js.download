@@ -1,0 +1,18 @@
+var shop = Shopify.shop;
+function isScriptLoaded(url) {
+    var scripts = document.getElementsByTagName('script');
+    for (var i = scripts.length; i--;) {
+        if (scripts[i].src == url) return true;
+    }
+    return false;
+}
+if(window.shop_template_name != 'password' && !(isScriptLoaded('https://cookiebar.hulkapps.com/hulk_cookie_bar.js') || isScriptLoaded("https://cookiebar.hulkapps.com/hulk_cookie_bar.js?shop="+shop))){
+	(function (d, s) {
+		var shop = Shopify.shop
+		var f = d.getElementsByTagName(s)[0],
+		j = d.createElement(s);
+		j.defer = true;
+		j.src = "https://cookiebar.hulkapps.com/hulk_cookie_bar.js?extension=true&shop="+shop;
+		f.parentNode.insertBefore(j, f);
+	})(document, 'script');
+}
